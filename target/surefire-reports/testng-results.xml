@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-09-12T07:17:04Z" name="Leaftaps" finished-at="2023-09-12T07:18:31Z" duration-ms="87726">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@50378a4]" name="runScenario" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2023-09-12T07:17:04Z" name="Leads" finished-at="2023-09-12T07:18:31Z" duration-ms="87726">
+      <class name="com.leaftaps.testcases.ReadAndWrite">
+        <test-method is-config="true" signature="startReport()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@50378a4]" started-at="2023-09-12T12:47:03Z" name="startReport" finished-at="2023-09-12T12:47:04Z" duration-ms="247" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startReport -->
+        <test-method is-config="true" signature="setValues()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@50378a4]" started-at="2023-09-12T12:47:04Z" name="setValues" finished-at="2023-09-12T12:47:04Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setValues -->
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@50378a4]" started-at="2023-09-12T12:47:04Z" name="setUpClass" finished-at="2023-09-12T12:47:04Z" duration-ms="214" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="startTestCase()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@50378a4]" started-at="2023-09-12T12:47:04Z" name="startTestCase" finished-at="2023-09-12T12:47:04Z" duration-ms="12" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="preCondition()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@50378a4]" started-at="2023-09-12T12:47:05Z" name="preCondition" finished-at="2023-09-12T12:47:15Z" duration-ms="9378" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preCondition -->
+        <test-method signature="runTests(java.lang.String, java.lang.String)[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@50378a4]" started-at="2023-09-12T12:47:15Z" name="runTests" data-provider="fetchData" finished-at="2023-09-12T12:47:44Z" duration-ms="29065" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[DemoCSR]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[crmsfa]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runTests -->
+        <test-method is-config="true" signature="postCondition()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@50378a4]" started-at="2023-09-12T12:47:44Z" name="postCondition" finished-at="2023-09-12T12:47:50Z" duration-ms="5865" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postCondition -->
+        <test-method is-config="true" signature="updateResult()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@50378a4]" started-at="2023-09-12T12:47:50Z" name="updateResult" finished-at="2023-09-12T12:47:50Z" duration-ms="693" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateResult -->
+        <test-method is-config="true" signature="preCondition()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@50378a4]" started-at="2023-09-12T12:47:50Z" name="preCondition" finished-at="2023-09-12T12:47:57Z" duration-ms="6634" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preCondition -->
+        <test-method signature="runTests(java.lang.String, java.lang.String)[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@50378a4]" started-at="2023-09-12T12:47:57Z" name="runTests" data-provider="fetchData" finished-at="2023-09-12T12:48:26Z" duration-ms="28662" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Demosalesmanager]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[crmsfa]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runTests -->
+        <test-method is-config="true" signature="postCondition()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@50378a4]" started-at="2023-09-12T12:48:26Z" name="postCondition" finished-at="2023-09-12T12:48:31Z" duration-ms="5449" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postCondition -->
+        <test-method is-config="true" signature="updateResult()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@50378a4]" started-at="2023-09-12T12:48:31Z" name="updateResult" finished-at="2023-09-12T12:48:31Z" duration-ms="320" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateResult -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@50378a4]" started-at="2023-09-12T12:48:31Z" name="tearDownClass" finished-at="2023-09-12T12:48:31Z" duration-ms="6" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+        <test-method is-config="true" signature="endResult()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@50378a4]" started-at="2023-09-12T12:48:32Z" name="endResult" finished-at="2023-09-12T12:48:32Z" duration-ms="705" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endResult -->
+      </class> <!-- com.leaftaps.testcases.ReadAndWrite -->
+    </test> <!-- Leads -->
+  </suite> <!-- Leaftaps -->
+</testng-results>
