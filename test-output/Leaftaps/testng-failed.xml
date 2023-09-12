@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Leaftaps]" guice-stage="DEVELOPMENT">
+  <test name="Leads(failed)">
+    <classes>
+      <class name="com.leaftaps.testcases.ReadAndWrite">
+        <methods>
+          <include name="startTestCase"/>
+          <include name="setUpClass"/>
+          <include name="runTests"/>
+          <include name="setValues"/>
+          <include name="tearDownClass"/>
+          <include name="endResult"/>
+          <include name="startReport"/>
+        </methods>
+      </class> <!-- com.leaftaps.testcases.ReadAndWrite -->
+    </classes>
+  </test> <!-- Leads(failed) -->
+</suite> <!-- Failed suite [Leaftaps] -->
