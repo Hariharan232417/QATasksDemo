@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Threshold (If the values go beyond these thresold - do not run automated tests)
-Threshold_CPU=40
-Threshold_Mem=45
-Threshold_Disk=48
+Threshold_CPU=60
+Threshold_Mem=55
+Threshold_Disk=68
 
 # Condition to allow or not allow to run
 bPassed=true
