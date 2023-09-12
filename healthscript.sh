@@ -37,6 +37,5 @@ fi
 if($bPassed); then
     echo "The automated tests can run now as the health check is positive"
     bash InstallAndRunSelenium.sh
-else
    #aws ec2 reboot-instances --instance-ids i-05a320a8382d06a4b --region ap-south-1
 fi
