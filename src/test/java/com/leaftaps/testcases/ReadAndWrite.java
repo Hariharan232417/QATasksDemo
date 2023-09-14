@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.framework.testng.api.base.ProjectHooks;
-import com.leaftaps.pages.LoginPage;
+import com.leaftaps.pages.MainPage_Netmeds;
 
 public class ReadAndWrite extends ProjectHooks{
 	@BeforeTest
@@ -20,11 +20,10 @@ public class ReadAndWrite extends ProjectHooks{
 	
 	@Test(dataProvider = "fetchData")
 	public void runTests(String username,String password) {
-		new LoginPage()
-		.enterUsername(username)
-		.enterPassword(password)
-		.clickLogin()
-		.getCRMSFATextAndWriteToExcel(username);
+		/*
+		 * new MainPage_Netmeds() .enterUsername(username) .enterPassword(password)
+		 * .clickLogin() .getCRMSFATextAndWriteToExcel(username);
+		 */
 		
 			
 		

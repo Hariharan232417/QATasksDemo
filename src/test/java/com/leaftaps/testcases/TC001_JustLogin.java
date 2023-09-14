@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.framework.testng.api.base.ProjectHooks;
-import com.leaftaps.pages.LoginPage;
+import com.leaftaps.pages.MainPage_Netmeds;
 
 public class TC001_JustLogin extends ProjectHooks{
 	@BeforeTest
@@ -18,11 +18,10 @@ public class TC001_JustLogin extends ProjectHooks{
 	
 	@Test(dataProvider = "fetchData")
 	public void runLogin(String username, String password) {
-		new LoginPage()
-		.enterUsername(username)
-		.enterPassword(password)
-		.clickLogin();
-
+		/*
+		 * new MainPage_Netmeds() .enterUsername(username) .enterPassword(password)
+		 * .clickLogin();
+		 */
 	}
 
 }

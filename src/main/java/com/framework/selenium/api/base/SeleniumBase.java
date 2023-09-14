@@ -933,6 +933,23 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 
 	}
 
+	
+
+	@Override
+	public void executeTheScript(String js, WebElement ele) {
+		getDriver().executeScript(js, ele);
+	}
+	
+	public static void generateProjectAndAuctionIds() {
+		int ranNum1 = (int) (Math.random() * 10000);
+		int ranNum2 = ranNum1+9999;
+		projectId = Integer.toString(ranNum1);
+		auctionRef = Integer.toString(ranNum2);
+	}
+	
+	
+	
+
 	public void fileUploadWithJs(WebElement ele, String data) {
 		try {
 			
@@ -962,18 +979,42 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 		} 
 
 	}
+	
+	
+	
+	//QATasks Functions:
+	//--------------------
+	public int getTotalCardCounts(String xpath) {
+		
+		int CardCount=-1;
+		try {
+			
+			CardCount = locateElements(Locators.XPATH, xpath).size();
 
-	@Override
-	public void executeTheScript(String js, WebElement ele) {
-		getDriver().executeScript(js, ele);
+		} catch (Exception e) {
+			reportStep("Exception when finding the Total Molecule counts", "fail");
+		} 
+		
+		return CardCount;
+
 	}
 	
-	public static void generateProjectAndAuctionIds() {
-		int ranNum1 = (int) (Math.random() * 10000);
-		int ranNum2 = ranNum1+9999;
-		projectId = Integer.toString(ranNum1);
-		auctionRef = Integer.toString(ranNum2);
+	public void scrollByPixel(int pixel)
+	{		
+		getDriver().executeScript("window.scrollBy(0, 300);");
 	}
-
 	
+	
+	
+	public void periodicallyCheck_For_NewCardLoads(String allCards_Xpath)
+	{
+		 while (true) {
+	            // Get the current count of cards/items
+	        	int previousCardCount = getTotalCardCounts(allCards_Xpath);
+	        	
+	        	scrollByPixel(300);
+	        	//To be updated
+	        	
+	        }
+	}
 }

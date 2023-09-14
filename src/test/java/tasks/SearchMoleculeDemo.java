@@ -107,6 +107,12 @@ public class SearchMoleculeDemo {
 					String MRPFetchedText = getElementText(xpath_Mrp,"MRP");
 					lst.add(MRPFetchedText);
 					
+					
+					
+					String xpath_BacterialInfections= "//div[@class='product-detail']//span[@class='gen_drug ellipsis']";
+					String BacterialInfectionsFetchedText = getElementText(xpath_BacterialInfections,"Bacterial Infections");
+					lst.add(BacterialInfectionsFetchedText);
+					
 					String xpath_RxRequired = "//div[@class='product-detail']//span[@class='req_Rx']";
 					String RxRequiredFetchedText = getElementText(xpath_RxRequired,"RxRequired");
 					lst.add(RxRequiredFetchedText);
@@ -126,6 +132,11 @@ public class SearchMoleculeDemo {
 					String xpath_Synopsis = "//h2[text()='SYNOPSIS']/..//tr";
 					String synopsis = getSynopsis_StoreInList(xpath_Synopsis);
 					lst.add(synopsis);
+					
+					
+					String xpath_ImageLink = "//div[@class='main-container']//figure/img";
+					String imageLinks = getImagesLink_StoreInList(xpath_ImageLink);
+					lst.add(imageLinks);
 				
 				}
 				catch(NoSuchElementException e)
@@ -207,7 +218,8 @@ public class SearchMoleculeDemo {
             }
          
         }
-
+        
+        
 		try {
 
 			outputStream = new FileOutputStream(fileName);
@@ -328,7 +340,7 @@ public class SearchMoleculeDemo {
 		}
 		catch(NoSuchElementException e)
 		{
-			text = "No element Found "+ElementName;
+			text = "No element Found for "+ElementName;
 		}
 		
 		return ElementName +"---> "+text;
@@ -363,9 +375,39 @@ public class SearchMoleculeDemo {
 		
 	}
 	
-	//div[@class="product-detail"]//span[@class="req_Rx"]
-	
-	
+	public static String getImagesLink_StoreInList(String xPath)
+	{
+		String text = "";
+		try
+		{
+			//WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+			//wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(xPath))));
+			List<WebElement> lstAllElements = driver.findElements(By.xpath(xPath));
+			
+			
+			int count = lstAllElements.size();
+			
+			if(count>0)
+			{
+				for(int i=0;i<count;i++)
+				{
+					text = lstAllElements.get(i).getAttribute("src")+" ; "+text;
+				}
+			}
+			else
+			{
+				text = "No Element found for images link";
+			}
+			
+		}
+		catch(NoSuchElementException e)
+		{
+			text = "No element Found - Image  Links";
+		}
+		
+		return "Image Links ---> "+text;
+		
+	}
 	public static void scrollTillLastCard(List<WebElement> lst) throws InterruptedException
 	{
 		int initialCardCount = lst.size();
