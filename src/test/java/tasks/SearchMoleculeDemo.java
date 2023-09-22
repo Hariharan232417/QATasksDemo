@@ -195,25 +195,36 @@ public class SearchMoleculeDemo {
 		row = sheet.createRow(0);
         row.createCell(0).setCellValue("Molecule");
         row.createCell(1).setCellValue("Alternates");
-        row.createCell(2).setCellValue("Other details");
-		
+        row.createCell(2).setCellValue("Other details - MRP");
+        row.createCell(3).setCellValue("Bacterial Infections");
+        row.createCell(4).setCellValue("RxRequired");
+        row.createCell(5).setCellValue("MKT");
+        row.createCell(6).setCellValue("Country Of Origin");
+        row.createCell(7).setCellValue("Generic Name");
+        row.createCell(8).setCellValue("Synopsis");
+        row.createCell(9).setCellValue("Image Links");
+        
+        
 		
         // Iterate through the outer map
         for (Entry<String, Map<String, List<String>>> outerEntry : map.entrySet()) {
             String outerKey = outerEntry.getKey();
             Map<String, List<String>> innerMap = outerEntry.getValue();
+            
 
             // Iterate through the inner map
             for (Map.Entry<String, List<String>> innerEntry : innerMap.entrySet()) {
                 String innerKey = innerEntry.getKey();
                 List<String> innerList = innerEntry.getValue();
-
+                row = sheet.createRow(rowNum++);
+                row.createCell(0).setCellValue(outerKey);
+                row.createCell(1).setCellValue(innerKey);
+                
+                int cells = 2;
+                
                 // Iterate through the list
                 for (String value : innerList) {
-                    row = sheet.createRow(rowNum++);
-                    row.createCell(0).setCellValue(outerKey);
-                    row.createCell(1).setCellValue(innerKey);
-                    row.createCell(2).setCellValue(value);
+                   row.createCell(cells++).setCellValue(value);
                 }
             }
          
@@ -343,7 +354,7 @@ public class SearchMoleculeDemo {
 			text = "No element Found for "+ElementName;
 		}
 		
-		return ElementName +"---> "+text;
+		return text;
 		
 	}
 	

@@ -5,8 +5,11 @@
     <classes>
       <class name="com.leaftaps.testcases.ReadAndWrite">
         <methods>
+          <include name="postCondition"/>
           <include name="startTestCase"/>
           <include name="setUpClass"/>
+          <include name="updateResult"/>
+          <include name="preCondition"/>
           <include name="runTests"/>
           <include name="setValues"/>
           <include name="tearDownClass"/>

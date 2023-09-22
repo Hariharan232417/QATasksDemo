@@ -18,14 +18,15 @@ public class ReadAndWrite extends ProjectHooks{
 		excelFileName="SourceData";
 	}
 	
-	@Test(dataProvider = "fetchData")
-	public void runTests(String username,String password) {
-		/*
-		 * new MainPage_Netmeds() .enterUsername(username) .enterPassword(password)
-		 * .clickLogin() .getCRMSFATextAndWriteToExcel(username);
-		 */
+	@Test
+	public void runTests() {
 		
-			
+		 new MainPage_Netmeds() 
+		 .enterMoleculeName_PressEnter("MEROPENEM 1GM")
+		 .scrollTillLastMoleculeResults()
+		 .getAll_Alternatives_Of_Molecule_StoreInMap("MEROPENEM 1GM")
+		 .get_AlternativesDetails_StoreInMap();
+		 
 		
 	}
 

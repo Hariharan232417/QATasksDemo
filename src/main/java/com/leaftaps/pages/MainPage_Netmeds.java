@@ -1,8 +1,9 @@
 package com.leaftaps.pages;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import com.framework.selenium.api.design.Locators;
@@ -14,32 +15,54 @@ public class MainPage_Netmeds extends ProjectHooks{
 	
 	String searchForMedicinesInputbox = "//input[@id='search']";
 	
-	String allCards = "//div[@class='product-list']//li";
+	String xpath_AllCards = "//div[@class='product-list']//li";
+	
+	String xpath_AllAlternateText ="//div[@id='algolia_hits']//a[@class='category_name']";
+	
+	Map<String,List<String>> map_Molecule_AlternateText = new LinkedHashMap();
+	
+	Map<String,Map<String,List<String>>> mapWholeDetails_Molecule_MoleculeAlternativesText = new LinkedHashMap();
+	
 	
 	public MainPage_Netmeds enterMoleculeName_PressEnter(String molecule) {
-		clearAndType(locateElement(Locators.XPATH, "searchForMedicinesInputbox"), molecule);
+		
+		typeAndEnter(locateElement(Locators.XPATH, searchForMedicinesInputbox), molecule);
 		reportStep(molecule+" entered successfully","pass");
 		return this;
 	}
 	
 	
-	public MainPage_Netmeds scrollTillLastMoleculeResults(String allCards) {
+	public MainPage_Netmeds scrollTillLastMoleculeResults() {
 		
-		int initialCardCount = getTotalCardCounts(allCards);
+		int totalAlternatives = periodicallyCheck_For_NewCardLoads(xpath_AllCards);
 		
-		 // Define a maximum timeout (e.g., 30 seconds) for waiting for new cards to load
-        long maxWaitTimeInSeconds = 1000;
-        long startTime = System.currentTimeMillis();
-        
-       //To be updated
+		reportStep("Successfully scrolled till last element. Total Alternatives - "+totalAlternatives,"pass");
+		return this;
+	}
+	
+	
+	public MainPage_Netmeds getAll_Alternatives_Of_Molecule_StoreInMap(String molecule)
+	{
+		List<String> lstAllAlternativesText = getAllAlternativesText(xpath_AllAlternateText);
+		
+		map_Molecule_AlternateText.put(molecule, lstAllAlternativesText);
+		
+		reportStep("Successfully stored all Alternatives for Molecule "+molecule+"in a Map ","pass");
+		
+		System.out.println(map_Molecule_AlternateText);
+		
 		return this;
 	}
 	 
-	@And("Click Login button")
-	public HomePage clickLogin() {
-		click(locateElement(Locators.CLASS_NAME, "decorativeSubmit"));
-		reportStep("Login button clicked successfully", "pass");
-		return new HomePage();
+	public MainPage_Netmeds get_AlternativesDetails_StoreInMap()
+	{
+		mapWholeDetails_Molecule_MoleculeAlternativesText = getEachAlternativesText_StoreInMap(map_Molecule_AlternateText);
+		
+		System.out.println(mapWholeDetails_Molecule_MoleculeAlternativesText);
+		
+		reportStep("Successfully stored all details in a Map ","pass");
+		
+		return this;
 	}
 
 }

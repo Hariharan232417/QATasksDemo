@@ -18,7 +18,7 @@ public class ProjectHooks extends SeleniumBase {
 	
 	@BeforeMethod
 	public void preCondition() {
-		startApp("chrome", true, "http://leaftaps.com/opentaps");
+		startApp("chrome", true, "https://www.netmeds.com/");
 		setNode();
 	}
 	

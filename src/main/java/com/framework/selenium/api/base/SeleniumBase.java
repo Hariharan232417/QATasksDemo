@@ -8,7 +8,9 @@ import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
@@ -34,12 +36,12 @@ import com.framework.selenium.api.design.Element;
 import com.framework.selenium.api.design.Locators;
 import com.framework.utils.ExtentReporter;
 
-public class SeleniumBase extends ExtentReporter implements Browser, Element  {
+public class SeleniumBase extends ExtentReporter implements Browser, Element {
 	protected Actions act;
 
 	public static String projectId;
 	public static String auctionRef;
-	
+
 	protected String getAttribute(WebElement ele, String attributeValue) {
 		String val = "";
 		try {
@@ -54,7 +56,7 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 		act = new Actions(getDriver());
 		act.moveToElement(ele).perform();
 	}
-	
+
 	protected void dragAndDrop(WebElement eleSoutce, WebElement eleTarget) {
 		act = new Actions(getDriver());
 		act.dragAndDrop(eleSoutce, eleTarget).perform();
@@ -98,12 +100,11 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 
 	}
 
-
 	@Override
 	public void click(WebElement ele) {
 		try {
-			ele.isDisplayed(); // @FindBy return the proxy even if it does not exist !! 
-		}catch (NoSuchElementException e) {
+			ele.isDisplayed(); // @FindBy return the proxy even if it does not exist !!
+		} catch (NoSuchElementException e) {
 			reportStep("The Element " + ele + " is not found", "fail");
 		}
 
@@ -121,7 +122,7 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 			} catch (Exception e) {
 				boolean bFound = false;
 				int totalTime = 0;
-				while(!bFound && totalTime < 10000) {
+				while (!bFound && totalTime < 10000) {
 					try {
 						Thread.sleep(500);
 						ele.click();
@@ -130,9 +131,9 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 					} catch (Exception e1) {
 						bFound = false;
 					}
-					totalTime = totalTime+500;						
+					totalTime = totalTime + 500;
 				}
-				if(!bFound)
+				if (!bFound)
 					ele.click();
 			}
 		} catch (StaleElementReferenceException e) {
@@ -146,11 +147,11 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 			reportStep("The Element " + ele + " could not be clicked due to: " + e.getMessage(), "fail");
 		}
 	}
-	
+
 	public void clickUsingJs(WebElement ele) {
 		try {
-			ele.isDisplayed(); // @FindBy return the proxy even if it does not exist !! 
-		}catch (NoSuchElementException e) {
+			ele.isDisplayed(); // @FindBy return the proxy even if it does not exist !!
+		} catch (NoSuchElementException e) {
 			reportStep("The Element " + ele + " is not found", "fail");
 		}
 
@@ -161,7 +162,7 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 			} catch (Exception e) {
 				boolean bFound = false;
 				int totalTime = 0;
-				while(!bFound && totalTime < 10000) {
+				while (!bFound && totalTime < 10000) {
 					try {
 						Thread.sleep(500);
 						getDriver().executeScript("arguments[0].click()", ele);
@@ -170,9 +171,9 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 					} catch (Exception e1) {
 						bFound = false;
 					}
-					totalTime = totalTime+500;						
+					totalTime = totalTime + 500;
 				}
-				if(!bFound)
+				if (!bFound)
 					getDriver().executeScript("arguments[0].click()", ele);
 			}
 		} catch (StaleElementReferenceException e) {
@@ -186,7 +187,7 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 
 	public void click(Locators locatorType, String value) {
 		String text = "";
-		WebElement ele = locateElement(locatorType,value);
+		WebElement ele = locateElement(locatorType, value);
 		try {
 			try {
 				Thread.sleep(500);
@@ -200,19 +201,19 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 			} catch (Exception e) {
 				boolean bFound = false;
 				int totalTime = 0;
-				while(!bFound && totalTime < 10000) {
+				while (!bFound && totalTime < 10000) {
 					try {
 						Thread.sleep(500);
-						ele = locateElement(locatorType,value);
+						ele = locateElement(locatorType, value);
 						ele.click();
 						bFound = true;
 
 					} catch (Exception e1) {
 						bFound = false;
 					}
-					totalTime = totalTime+500;						
+					totalTime = totalTime + 500;
 				}
-				if(!bFound)
+				if (!bFound)
 					ele.click();
 			}
 		} catch (StaleElementReferenceException e) {
@@ -316,6 +317,7 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 		}
 
 	}
+
 	public void type(WebElement ele, String data) {
 		try {
 			getWait().until(ExpectedConditions.visibilityOf(ele));
@@ -336,7 +338,11 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 			ele.sendKeys("", "", data, Keys.ENTER);
 		} catch (ElementNotInteractableException e) {
 			reportStep("The Element " + ele + " is not Interactable \n" + e.getMessage(), "fail");
-		} catch (WebDriverException e) {
+		} 
+		catch (StaleElementReferenceException e) {
+			reportStep("The Element " + ele + " is stale \n" + e.getMessage(), "fail");
+		}
+		catch (WebDriverException e) {
 			reportStep("The Element " + ele + " is not Interactable \n" + e.getMessage(), "fail");
 		}
 
@@ -354,6 +360,92 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 			reportStep("Sorry! text is not available \n" + e.getMessage(), "fail");
 		}
 		return null;
+	}
+	
+	public String getElementText(String xpath,String ElementName)
+	{
+		String text = "";
+		try
+		{
+			WebDriverWait wait = new WebDriverWait(getDriver(),Duration.ofSeconds(20));
+			wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(By.xpath(xpath))));
+			
+			text = getDriver().findElement(By.xpath(xpath)).getText();
+		}
+		catch(NoSuchElementException e)
+		{
+			text = "No element Found for "+ElementName;
+		}
+		
+		return ElementName +"---> "+text;
+		
+	}
+	
+	public String getSynopsis_StoreInList(String xPath)
+	{
+		String text = "";
+		try
+		{
+			Thread.sleep(500);
+			//waitForApperance(locateElement(Locators.XPATH,xPath));
+			List<WebElement> lstAllElements = locateElements(Locators.XPATH,xPath);
+			int count = lstAllElements.size();
+			
+			
+			
+			for(int i=0;i<count;i++)
+			{
+				text = lstAllElements.get(i).getText()+" ; "+text;
+			}
+			
+			
+		}
+		catch(NoSuchElementException e)
+		{
+			text = "No element Found - Synopsis";
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "Synopsis ---> "+text;
+		
+	}
+	
+	public String getImagesLink_StoreInList(String xPath)
+	{
+		String text = "";
+		try
+		{
+			Thread.sleep(500);
+			
+			List<WebElement> lstAllElements = getDriver().findElements(By.xpath(xPath));
+		
+			int count = lstAllElements.size();
+			
+			if(count>0)
+			{
+				for(int i=0;i<count;i++)
+				{
+					text = lstAllElements.get(i).getAttribute("src")+" ; "+text;
+				}
+			}
+			else
+			{
+				text = "No Element found for images link";
+			}
+			
+		}
+		catch(NoSuchElementException e)
+		{
+			text = "No element Found - Image  Links";
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "Image Links ---> "+text;
+		
 	}
 
 	@Override
@@ -556,12 +648,12 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 			} else if (browser.equalsIgnoreCase("firefox")) {
 				setDriver("firefox", headless);
 			} else if (browser.equalsIgnoreCase("msedge")) {
-				setDriver("msedge",headless);
+				setDriver("msedge", headless);
 			}
 			setWait();
 			getDriver().manage().window().maximize();
-			getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(90));
-			getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+			getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+			//getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 			getDriver().get(url);
 		} catch (WebDriverException e) {
 			e.printStackTrace();
@@ -781,11 +873,11 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 
 	public void switchToFrameUsingXPath(String xpath) {
 		try {
-			getDriver().switchTo().frame(locateElement(Locators.XPATH,xpath));
+			getDriver().switchTo().frame(locateElement(Locators.XPATH, xpath));
 		} catch (NoSuchFrameException e) {
-			//reportStep("No such frame " + e.getMessage(), "warning", false);
+			// reportStep("No such frame " + e.getMessage(), "warning", false);
 		} catch (Exception e) {
-			//reportStep("No such frame " + e.getMessage(), "fail", false);
+			// reportStep("No such frame " + e.getMessage(), "fail", false);
 		}
 
 	}
@@ -838,7 +930,7 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 		long number = (long) Math.floor(Math.random() * 900000000L) + 10000000L;
 		try {
 			FileUtils.copyFile(getDriver().getScreenshotAs(OutputType.FILE),
-					new File("./"+ExtentReporter.folderName+"/images/" + number + ".jpg"));
+					new File("./" + ExtentReporter.folderName + "/images/" + number + ".jpg"));
 		} catch (WebDriverException e) {
 			reportStep("The browser has been closed." + e.getMessage(), "fail");
 		} catch (IOException e) {
@@ -894,7 +986,7 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 
 	public void chooseDate(WebElement ele, String data) {
 		try {
-			getDriver().executeScript("arguments[0].setAttribute('value', '" + data +"')", ele);
+			getDriver().executeScript("arguments[0].setAttribute('value', '" + data + "')", ele);
 			reportStep("The Data :" + data + " entered Successfully", "pass");
 		} catch (ElementNotInteractableException e) {
 			reportStep("The Element " + ele + " is not Interactable \n" + e.getMessage(), "fail");
@@ -917,11 +1009,11 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 			Robot robot = new Robot();
 
 			// Enter to confirm it is uploaded
-			robot.keyPress(KeyEvent.VK_CONTROL);			
+			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyPress(KeyEvent.VK_V);
 
 			robot.keyRelease(KeyEvent.VK_V);
-			robot.keyRelease(KeyEvent.VK_CONTROL);	
+			robot.keyRelease(KeyEvent.VK_CONTROL);
 
 			Thread.sleep(5000);
 			robot.keyPress(KeyEvent.VK_ENTER);
@@ -929,31 +1021,27 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 			reportStep("The file is selected Successfully", "pass");
 		} catch (Exception e) {
 			reportStep("The file is not selected Successfully", "fail");
-		} 
+		}
 
 	}
-
-	
 
 	@Override
 	public void executeTheScript(String js, WebElement ele) {
 		getDriver().executeScript(js, ele);
 	}
-	
+
 	public static void generateProjectAndAuctionIds() {
 		int ranNum1 = (int) (Math.random() * 10000);
-		int ranNum2 = ranNum1+9999;
+		int ranNum2 = ranNum1 + 9999;
 		projectId = Integer.toString(ranNum1);
 		auctionRef = Integer.toString(ranNum2);
 	}
-	
-	
-	
 
 	public void fileUploadWithJs(WebElement ele, String data) {
 		try {
-			
-			clickUsingJs(ele);;
+
+			clickUsingJs(ele);
+			;
 			pause(2000);
 
 			// Store the copied text in the clipboard
@@ -964,11 +1052,11 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 			Robot robot = new Robot();
 
 			// Enter to confirm it is uploaded
-			robot.keyPress(KeyEvent.VK_CONTROL);			
+			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyPress(KeyEvent.VK_V);
 
 			robot.keyRelease(KeyEvent.VK_V);
-			robot.keyRelease(KeyEvent.VK_CONTROL);	
+			robot.keyRelease(KeyEvent.VK_CONTROL);
 
 			Thread.sleep(5000);
 			robot.keyPress(KeyEvent.VK_ENTER);
@@ -976,45 +1064,267 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element  {
 			reportStep("The file is selected Successfully", "pass");
 		} catch (Exception e) {
 			reportStep("The file is not selected Successfully", "fail");
-		} 
+		}
 
 	}
-	
-	
-	
-	//QATasks Functions:
-	//--------------------
+
+	// QATasks Functions:
+	// --------------------
 	public int getTotalCardCounts(String xpath) {
-		
-		int CardCount=-1;
+
+		int CardCount = -1;
 		try {
-			
+
 			CardCount = locateElements(Locators.XPATH, xpath).size();
 
 		} catch (Exception e) {
 			reportStep("Exception when finding the Total Molecule counts", "fail");
-		} 
-		
+		}
+
 		return CardCount;
 
 	}
-	
-	public void scrollByPixel(int pixel)
-	{		
+
+	public void scrollByPixel(int pixel) {
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		getDriver().executeScript("window.scrollBy(0, 300);");
+	}
+
+	public void scrollToBottomOfPage() {
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		getDriver().executeScript("window.scrollTo(0, document.body.scrollHeight);");
+	}
+	
+	public void scrollToLastElement(String xpath)
+	{
+		//List<WebElement> lstAllProductList = locateElements(Locators.XPATH, xpath);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		List<WebElement> lstAllProductList = locateElements(Locators.XPATH, xpath);
+		getDriver().executeScript("arguments[0].scrollIntoView();", locateElements(Locators.XPATH, xpath).get(lstAllProductList.size()-1));
+		
+
+	}
+	
+	public void scrollToSpecifiedElement(String xpath)
+	{
+		String text = "";
+		try {
+			Thread.sleep(500);
+			getDriver().executeScript("arguments[0].scrollIntoView();", locateElement(Locators.XPATH, xpath));
+			
+			text = locateElements(Locators.XPATH, xpath).get(0).getText();
+			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		catch (StaleElementReferenceException e) {
+			reportStep("The Element with " + xpath + " could not be scrolled into due to Stale element -> " + e.getMessage(), "fail");
+		} catch (WebDriverException e) {
+			reportStep("The Element with " + xpath + " could not be scrolled into due to Webdriver exception -> " + e.getMessage(), "fail");
+		} catch (Exception e) {
+			reportStep("The Element with " + xpath + " could not be scroll into due to unknown Exception ->  " + e.getMessage(), "fail");
+		}
+	}
+
+	public int periodicallyCheck_For_NewCardLoads(String allCards_Xpath) {
+		
+		int currentCardCount=-1;
+		long maxWaitTimeInSeconds = 1000;
+		long startTime = getCurrentTimeInMS();
+		System.out.println("Started at Time (in Ms):  " + startTime);
+		
+		try {
+			
+
+			while (true) {
+				//> get previous card count
+				int previousCardCount = locateElements(Locators.XPATH,allCards_Xpath).size();
+	
+				//> scroll by 300 pixel
+				scrollByPixel(200);
+				
+		
+				//> scroll to Bottom of page
+				scrollToBottomOfPage();
+				
+				//> scroll to (as of now) last product list
+				//scrollToLastElement(allCards_Xpath);
+				
+				List<WebElement> lstAllProductList = locateElements(Locators.XPATH,allCards_Xpath);
+	            
+	            Thread.sleep(1000);
+	            getDriver().executeScript("arguments[0].scrollIntoView();", locateElements(Locators.XPATH,allCards_Xpath).get(lstAllProductList.size()-1));
+				
+	            
+	          //1> condition checks - if it reaches at end-> break loop
+				if(locateElements(Locators.XPATH,"//button[@class='ais-InfiniteHits-loadMore ais-InfiniteHits-loadMore--disabled']").size()>0)
+				{
+					currentCardCount = locateElements(Locators.XPATH,allCards_Xpath).size();
+					System.out.println("Loop stopped as it comes to the last element ais-InfiniteHits-loadMore ais-InfiniteHits-loadMore--disabled ");
+					break;
+					
+				}
+				
+				//> get current card count
+				currentCardCount = locateElements(Locators.XPATH,allCards_Xpath).size();
+				
+				
+				//1> condition check - if prev ==current card -> break loop
+				if (previousCardCount == currentCardCount)
+				{
+					System.out.println("Loop stopped as prev count = current count");
+					break;
+				}
+		            
+				
+				//2> condition check - currentTime - startTime >= max wait time. ie - > maximum wait time has been exceeded
+				long currentTime = getCurrentTimeInMS();
+	            long timeDiff = currentTime - startTime;
+	            System.out.println("Current Time - StartTime (in Ms) : "+timeDiff);
+	            if ((currentTime - startTime) >= (maxWaitTimeInSeconds * 1000)) 
+	            {
+					System.out.println("Loop stopped as current time - start time exceeded");
+					break;
+				}
+	               
+	            
+	            
+	          
+	            
+	            Thread.sleep(1000);
+				
+			
+			}
+		
+		}
+		catch(InterruptedException e)
+		{
+			e.getStackTrace();
+		}
+		
+		return currentCardCount;
+	}
+	
+	public long getCurrentTimeInMS() {
+		return System.currentTimeMillis();
+
+	}
+	
+	
+	public List<String> getAllAlternativesText(String xPath)
+	{
+		List<String> lstAllText = new ArrayList();
+		for (int i = 0; i < locateElements(Locators.XPATH,xPath).size(); i++) {
+			String text = locateElements(Locators.XPATH,xPath).get(i).getAttribute("title");
+			lstAllText.add(text);
+
+		}
+		
+		return lstAllText;
 	}
 	
 	
 	
-	public void periodicallyCheck_For_NewCardLoads(String allCards_Xpath)
+	public Map<String,Map<String,List<String>>> getEachAlternativesText_StoreInMap(Map<String,List<String>> map)
 	{
-		 while (true) {
-	            // Get the current count of cards/items
-	        	int previousCardCount = getTotalCardCounts(allCards_Xpath);
-	        	
-	        	scrollByPixel(300);
-	        	//To be updated
-	        	
-	        }
+		
+		Map<String,Map<String,List<String>>> mapWholeDetails = new LinkedHashMap();
+		for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+			String key = entry.getKey();
+			List<String> values = entry.getValue();
+
+			Map<String,List<String>> mapAllDetails = new LinkedHashMap();
+
+			
+			for (int i = 0; i < values.size(); i++) {
+				List<String> lst = new ArrayList();
+				try {
+					getDriver().findElement(By.xpath("//input[@id='search']")).sendKeys(values.get(i), Keys.ENTER);
+					
+					Thread.sleep(1000);
+					getWait().until(ExpectedConditions.visibilityOf(getDriver().findElement(By.xpath("//div[@id='algolia_hits']//img[@class='product-image-photo']"))));
+					String productName = values.get(i).trim().replace("'s", "").replace("'S", "");
+					
+					String xpathExpression = "//div[@id='algolia_hits']//img[@class='product-image-photo' and contains(@alt,'"+productName+"')]";
+					
+					getDriver().findElement(By.xpath(xpathExpression)).click();
+					
+					getWait().until(ExpectedConditions.visibilityOf(getDriver().findElement(By.xpath("//div[@class='essentials']//span[@class='final-price']"))));
+					
+					String xpath_Mrp = "//div[@class='essentials']//span[@class='final-price']";
+					String MRPFetchedText = getElementText(xpath_Mrp,"MRP");
+					lst.add(MRPFetchedText);
+					
+					String xpath_BacterialInfections= "//div[@class='product-detail']//span[@class='gen_drug ellipsis']";
+					String BacterialInfectionsFetchedText = getElementText(xpath_BacterialInfections,"Bacterial Infections");
+					lst.add(BacterialInfectionsFetchedText);
+					
+					String xpath_RxRequired = "//div[@class='product-detail']//span[@class='req_Rx']";
+					String RxRequiredFetchedText = getElementText(xpath_RxRequired,"RxRequired");
+					lst.add(RxRequiredFetchedText);
+					
+					String xpath_MKT = "//div[@class='essentials']//span[@class='drug-manu']/a";
+					String MKTFetchedText = getElementText(xpath_MKT,"MKT");
+					lst.add(MKTFetchedText);
+					
+					String xpath_CoutryOfOrigin = "//div[@class='essentials']//span[@class='drug-manu ellipsis origin_text']";
+					String CountryOfOriginText = getElementText(xpath_CoutryOfOrigin,"Country Of origin");
+					lst.add(CountryOfOriginText);
+					
+					String xpath_GenericName = "//div[@id='choose-generic-substitutes-block']//div[@class='drug-conf']";
+					String GenericNameText = getElementText(xpath_GenericName,"Generic Name");
+					lst.add(GenericNameText);
+					
+					String xpath_Synopsis = "//h2[text()='SYNOPSIS']/..//tr";
+					//scrollToSpecifiedElement(xpath_Synopsis);
+					String synopsis = getSynopsis_StoreInList(xpath_Synopsis);
+					lst.add(synopsis);
+					
+					
+					String xpath_ImageLink = "//div[@class='main-container']//figure/img";
+					//scrollToSpecifiedElement(xpath_ImageLink);
+					String imageLinks = getImagesLink_StoreInList(xpath_ImageLink);
+					lst.add(imageLinks);
+				
+				}
+				catch(NoSuchElementException e)
+				{
+					e.printStackTrace();
+					System.out.println(e.getMessage()+" Error in fetching element - "+values.get(i));
+					lst.add(" Error in fetching element - "+values.get(i));
+					
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				mapAllDetails.put(values.get(i), lst);
+				
+			}
+			
+			mapWholeDetails.put(key, mapAllDetails);
+			
+			
+		}
+		
+		return mapWholeDetails;
 	}
 }
