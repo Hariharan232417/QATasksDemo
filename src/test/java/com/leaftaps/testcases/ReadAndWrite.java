@@ -22,9 +22,9 @@ public class ReadAndWrite extends ProjectHooks{
 	public void runTests() {
 		
 		 new MainPage_Netmeds() 
-		 .enterMoleculeName_PressEnter("CEFTRIAXONE 1GM")
+		 .enterMoleculeName_PressEnter("LINEZOLID 600MG/300ML")
 		 .scrollTillLastMoleculeResults()
-		 .getAll_Alternatives_Of_Molecule_StoreInMap("CEFTRIAXONE 1GM")
+		 .getAll_Alternatives_Of_Molecule_StoreInMap("LINEZOLID 600MG/300ML")
 		 .get_AlternativesDetails_StoreInMap();
 		 
 		
