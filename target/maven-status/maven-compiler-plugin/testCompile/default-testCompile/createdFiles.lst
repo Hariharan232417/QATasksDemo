@@ -1,4 +1,5 @@
 com\leaftaps\testcases\ReadAndWrite.class
 tasks\Dictionary.class
 tasks\ReadAndWriteExcel.class
+tasks\SearchMoleculeDemo.class
 com\leaftaps\testcases\TC001_JustLogin.class

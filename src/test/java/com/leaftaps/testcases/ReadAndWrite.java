@@ -22,9 +22,9 @@ public class ReadAndWrite extends ProjectHooks{
 	public void runTests() {
 		
 		 new MainPage_Netmeds() 
-		 .enterMoleculeName_PressEnter("MEROPENEM 1GM")
+		 .enterMoleculeName_PressEnter("CEFTRIAXONE 1GM")
 		 .scrollTillLastMoleculeResults()
-		 .getAll_Alternatives_Of_Molecule_StoreInMap("MEROPENEM 1GM")
+		 .getAll_Alternatives_Of_Molecule_StoreInMap("CEFTRIAXONE 1GM")
 		 .get_AlternativesDetails_StoreInMap();
 		 
 		

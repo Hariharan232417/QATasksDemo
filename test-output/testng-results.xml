@@ -2,51 +2,51 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-09-21T17:22:20Z" name="Leaftaps" finished-at="2023-09-21T17:30:29Z" duration-ms="488432">
+  <suite started-at="2023-09-22T10:18:17Z" name="Leaftaps" finished-at="2023-09-22T10:33:25Z" duration-ms="907996">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" name="runScenario" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2023-09-21T17:22:20Z" name="Leads" finished-at="2023-09-21T17:30:29Z" duration-ms="488432">
+    <test started-at="2023-09-22T10:18:17Z" name="Leads" finished-at="2023-09-22T10:33:25Z" duration-ms="907996">
       <class name="com.leaftaps.testcases.ReadAndWrite">
-        <test-method is-config="true" signature="startReport()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" started-at="2023-09-21T22:52:20Z" name="startReport" finished-at="2023-09-21T22:52:20Z" duration-ms="316" status="PASS">
+        <test-method is-config="true" signature="startReport()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" started-at="2023-09-22T15:48:15Z" name="startReport" finished-at="2023-09-22T15:48:17Z" duration-ms="1844" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startReport -->
-        <test-method is-config="true" signature="setValues()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" started-at="2023-09-21T22:52:20Z" name="setValues" finished-at="2023-09-21T22:52:20Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="setValues()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" started-at="2023-09-22T15:48:17Z" name="setValues" finished-at="2023-09-22T15:48:17Z" duration-ms="16" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setValues -->
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" started-at="2023-09-21T22:52:20Z" name="setUpClass" finished-at="2023-09-21T22:52:21Z" duration-ms="206" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" started-at="2023-09-22T15:48:17Z" name="setUpClass" finished-at="2023-09-22T15:48:19Z" duration-ms="1554" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method is-config="true" signature="startTestCase()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" started-at="2023-09-21T22:52:21Z" name="startTestCase" finished-at="2023-09-21T22:52:21Z" duration-ms="13" status="PASS">
+        <test-method is-config="true" signature="startTestCase()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" started-at="2023-09-22T15:48:19Z" name="startTestCase" finished-at="2023-09-22T15:48:19Z" duration-ms="61" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="preCondition()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" started-at="2023-09-21T22:52:21Z" name="preCondition" finished-at="2023-09-21T22:52:40Z" duration-ms="19444" status="PASS">
+        <test-method is-config="true" signature="preCondition()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" started-at="2023-09-22T15:48:19Z" name="preCondition" finished-at="2023-09-22T15:49:38Z" duration-ms="79186" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- preCondition -->
-        <test-method signature="runTests()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" started-at="2023-09-21T22:52:40Z" name="runTests" finished-at="2023-09-21T23:00:23Z" duration-ms="462948" status="PASS">
+        <test-method signature="runTests()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" started-at="2023-09-22T15:49:38Z" name="runTests" finished-at="2023-09-22T16:03:19Z" duration-ms="820923" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runTests -->
-        <test-method is-config="true" signature="postCondition()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" started-at="2023-09-21T23:00:23Z" name="postCondition" finished-at="2023-09-21T23:00:28Z" duration-ms="5335" status="PASS">
+        <test-method is-config="true" signature="postCondition()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" started-at="2023-09-22T16:03:19Z" name="postCondition" finished-at="2023-09-22T16:03:24Z" duration-ms="5323" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- postCondition -->
-        <test-method is-config="true" signature="updateResult()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" started-at="2023-09-21T23:00:28Z" name="updateResult" finished-at="2023-09-21T23:00:29Z" duration-ms="405" status="PASS">
+        <test-method is-config="true" signature="updateResult()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" started-at="2023-09-22T16:03:24Z" name="updateResult" finished-at="2023-09-22T16:03:25Z" duration-ms="555" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- updateResult -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" started-at="2023-09-21T23:00:29Z" name="tearDownClass" finished-at="2023-09-21T23:00:29Z" duration-ms="5" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" started-at="2023-09-22T16:03:25Z" name="tearDownClass" finished-at="2023-09-22T16:03:25Z" duration-ms="5" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-        <test-method is-config="true" signature="endResult()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" started-at="2023-09-21T23:00:29Z" name="endResult" finished-at="2023-09-21T23:00:30Z" duration-ms="611" status="PASS">
+        <test-method is-config="true" signature="endResult()[pri:0, instance:com.leaftaps.testcases.ReadAndWrite@491b9b8]" started-at="2023-09-22T16:03:25Z" name="endResult" finished-at="2023-09-22T16:03:26Z" duration-ms="662" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endResult -->
