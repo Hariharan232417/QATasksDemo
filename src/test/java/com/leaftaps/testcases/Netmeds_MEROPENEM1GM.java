@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import com.framework.testng.api.base.ProjectHooks;
 import com.leaftaps.pages.MainPage_Netmeds;
 
-public class ReadAndWrite extends ProjectHooks{
+public class Netmeds_MEROPENEM1GM extends ProjectHooks{
 	@BeforeTest
 	public void setValues() {
 		testcaseName = "ExtractDatas";

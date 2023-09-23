@@ -16,6 +16,7 @@ import java.util.Set;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
@@ -409,6 +410,36 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element {
 		}
 		
 		return "Synopsis ---> "+text;
+		
+	}
+	
+	
+	public String getFactbox_StoreInList(String xPathColumnLeft, String xPathColumnRight)
+	{
+		String text = "";
+		try
+		{
+			WebDriverWait wait = new WebDriverWait(getDriver(),Duration.ofSeconds(20));
+			wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(By.xpath(xPathColumnLeft))));
+			List<WebElement> lstAllElementsColumnLeft = getDriver().findElements(By.xpath(xPathColumnLeft));
+			List<WebElement> lstAllElementsColumnRight = getDriver().findElements(By.xpath(xPathColumnRight));
+			int count = lstAllElementsColumnLeft.size();
+			
+			
+			
+			for(int i=0;i<count;i++)
+			{
+				text += lstAllElementsColumnLeft.get(i).getText() + " = " + lstAllElementsColumnRight.get(i).getText() + "\n";
+			}
+			
+			
+		}
+		catch(NoSuchElementException e)
+		{
+			text = "No element Found - Factbox";
+		}
+		
+		return text;
 		
 	}
 	
@@ -1327,4 +1358,243 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element {
 		
 		return mapWholeDetails;
 	}
+	
+	
+	
+	//One MG:
+	
+	
+	public List<String> OneMG_storeAllAlternativesText_TillNextButton_IsDisabled(String xpath)
+	{
+		
+		List<String> lstAllAlternativesText=new ArrayList();
+		String eachAlternativesText =null;
+		try
+		{
+			while(true)
+			{
+				Thread.sleep(1000);
+				WebDriverWait wait = new WebDriverWait(getDriver(),Duration.ofSeconds(20));
+				wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(By.xpath(xpath))));
+							
+				List<WebElement> lstAll_Alternatives = getDriver().findElements(By.xpath(xpath));
+				
+				for(int i=0;i<lstAll_Alternatives.size();i++)
+				{
+					 eachAlternativesText = lstAll_Alternatives.get(i).getText();
+					lstAllAlternativesText.add(eachAlternativesText);
+				}
+				
+				String xpath_NextButton = "//div[contains(@class,'style__paginate-container')]//span[contains(@class,'style__next')]";
+				boolean nextButtonDisabledAttributeFlag = getDriver().findElement(By.xpath(xpath_NextButton)).getAttribute("class").contains("disabled");
+				if(nextButtonDisabledAttributeFlag==false)
+					getDriver().findElement(By.xpath(xpath_NextButton)).click();
+				else
+					break;
+				
+			}
+		}
+		catch (NoSuchElementException e) {
+			reportStep("The Element with locator: " + xpath + " Not Found" , "fail");
+		} catch (Exception e) {
+			reportStep("The Element with locator: " + xpath + " Not Found as there is Generic Exception" , "fail");
+				
+		}
+		
+		
+		return lstAllAlternativesText;
+				
+		
+	}
+	
+	
+	public Map<String,Map<String,List<String>>> OneMG_GetEachAlternativesText_StoreInMap(Map<String,List<String>> map)
+	{
+		
+		Map<String,Map<String,List<String>>> mapWholeDetails = new LinkedHashMap();
+		
+		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+		
+		for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+			String key = entry.getKey();
+			List<String> values = entry.getValue();
+
+			Map<String,List<String>> mapAllDetails = new LinkedHashMap();
+
+			// Write list values to subsequent columns
+			
+			for (int i = 0; i < values.size(); i++) {
+				List<String> lst = new ArrayList();
+				String originalWindowHandle = getDriver().getWindowHandle();
+				try {
+					Thread.sleep(1000);
+					wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(By.xpath("//input[@id='srchBarShwInfo']"))));
+					
+					String eachAlternatives = values.get(i);
+				
+					getDriver().findElement(By.xpath("//input[@id='srchBarShwInfo']")).sendKeys(eachAlternatives, Keys.ENTER);
+					
+					String xpath_ProductTitle = "//div[contains(@class,'row style__grid-container')]//a//span[contains(@class,'style__pro-title')]";
+					
+					wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(By.xpath(xpath_ProductTitle))));
+								
+					//Mrp:
+					String xpath_PriceTag = "//div[contains(@class,'style__price-tag___')]";
+					String MRPFetchedText = getElementText(xpath_PriceTag,"MRP");
+					lst.add(MRPFetchedText);
+					
+					
+					String productName = values.get(i).trim();
+					String xpathExpression = "//div[contains(@class,'row style__grid-container')]//a//span[contains(@class,'style__pro-title') and contains(normalize-space(),'"+productName+"')]";
+					Thread.sleep(1000);
+					wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(By.xpath(xpathExpression))));
+					wait.until(ExpectedConditions.elementToBeClickable(getDriver().findElement(By.xpath(xpathExpression))));
+					getDriver().findElement(By.xpath(xpathExpression)).click();
+				
+					Set<String> windowHandles = getDriver().getWindowHandles();
+					
+					List<String> lstWindowHandles = new ArrayList(windowHandles);
+					
+					getDriver().switchTo().window(lstWindowHandles.get(1));
+					
+					String xpath_DrugHeader = "//div[@id='drug_header']";
+					Thread.sleep(500);
+					wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(By.xpath(xpath_DrugHeader))));
+					
+					//Prescription required:
+					String xpath_presecriptionRequired = "//div[@id='drug_header']//div[contains(@class,'DrugHeader__prescription-req')]/span";
+					String PrescriptionRequiredFetchedText = getElementText(xpath_presecriptionRequired,"Prescription Required");
+					lst.add(PrescriptionRequiredFetchedText);
+					
+					//Manufacturer
+					String xpath_Manufacturer = "//div[@id='drug_header']//div[contains(@class,'DrugHeader__meta-value') and not(contains(@class,'saltInfo'))]/a";
+					String ManufacturerFetchedText = getElementText(xpath_Manufacturer,"Manufacturer");
+					lst.add(ManufacturerFetchedText);
+					
+					
+					//Salt Composition
+					String xpath_SaltComposition = "//div[@id='drug_header']//div[contains(@class,'saltInfo DrugHeader__meta-value')]/a";
+					String SaltCompositionFetchedText = getElementText(xpath_SaltComposition,"Salt Composition");
+					lst.add(SaltCompositionFetchedText);
+					
+					//Storage:
+					String xpath_Storage = "//div[@id='drug_header']//div[text()='Storage']/following::div[contains(@class,'saltInfo DrugHeader__meta-value')]";
+					String StorageFetchedText = getElementText(xpath_Storage,"Storage");
+					lst.add(StorageFetchedText);
+					
+					//Images link
+					String xpath_ImageLinks = "//div[contains(@class,'DrugHeader__slider-wrapper')]//img";
+					String ImageLinksFetchedText = getImagesLink_StoreInList(xpath_ImageLinks);
+					lst.add(ImageLinksFetchedText);
+					
+					//Uses:
+					String xpath_UsesAndBenefits = "//div[@id='scroll-bar']//ul/a/span[text()='Uses and benefits']";
+					getDriver().findElement(By.xpath(xpath_UsesAndBenefits)).click();
+					String xpathUses = "//div[@id='uses_and_benefits']//h2[contains(text(),'Uses of')]/..";
+					wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(By.xpath(xpathUses))));
+					
+					String Uses_FetchedText = getElementText(xpathUses,"Uses");
+					lst.add(Uses_FetchedText);
+					
+					//Fact box:
+					String xpath_FactBox = "//div[@id='scroll-bar']//ul/a/span[text()='Fact box']";
+					getDriver().findElement(By.xpath(xpath_FactBox)).click();
+					Thread.sleep(400);
+					String xpath_Left = "//div[@id='fact_box']//div[contains(@class,'DrugFactBox__col-left')]";
+					String xpath_Right = "//div[@id='fact_box']//div[contains(@class,'DrugFactBox__col-right')]";
+					wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(By.xpath(xpath_Left))));
+					String FactBox_FetchedText = getFactbox_StoreInList(xpath_Left,xpath_Right);
+					lst.add(FactBox_FetchedText);
+					
+					getDriver().close();
+					
+					Thread.sleep(1000);
+										
+					getDriver().switchTo().window(originalWindowHandle);
+				
+				}
+				catch(NoSuchElementException e)
+				{
+					e.printStackTrace();
+					System.out.println(e.getMessage()+" Element Not found - "+values.get(i));
+					lst.add(e.getMessage()+" Element not found when fetching element - "+values.get(i));
+					
+					reportStep(e.getMessage()+" Element not found when fetching element - "+values.get(i),"fail");
+					
+					if(!getDriver().getWindowHandle().equals(originalWindowHandle))
+					{
+						getDriver().close();
+						
+						try {
+							Thread.sleep(1000);
+						} catch (InterruptedException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+											
+						getDriver().switchTo().window(originalWindowHandle);
+					}
+					
+				}
+				catch(ElementClickInterceptedException e)
+				{
+					e.printStackTrace();
+					System.out.println(e.getMessage()+" ElementClickInterceptedException - "+values.get(i));
+					lst.add(e.getMessage()+" ElementClickInterceptedException when fetching element - "+values.get(i));
+					
+					reportStep(e.getMessage()+" ElementClickInterceptedException when fetching element - "+values.get(i),"fail");
+					
+					if(!getDriver().getWindowHandle().equals(originalWindowHandle))
+					{
+						getDriver().close();
+						
+						try {
+							Thread.sleep(1000);
+						} catch (InterruptedException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}					
+						getDriver().switchTo().window(originalWindowHandle);
+					}
+					
+					
+					
+				}
+				catch(WebDriverException e)
+				{
+					e.printStackTrace();
+					System.out.println(e.getMessage()+" WebDriverException - "+values.get(i));
+					lst.add(" WebDriverException when fetching element - "+values.get(i));
+					
+					reportStep(e.getMessage()+" WebDriverException when fetching element - "+values.get(i),"fail");
+					
+					if(!getDriver().getWindowHandle().equals(originalWindowHandle))
+					{
+						getDriver().close();
+						try {
+							Thread.sleep(1000);
+						} catch (InterruptedException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}					
+						getDriver().switchTo().window(originalWindowHandle);
+					}
+					
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				mapAllDetails.put(values.get(i), lst);
+				
+			}
+			
+			mapWholeDetails.put(key, mapAllDetails);
+			
+			
+		}
+		return mapWholeDetails;
+	}
+	
+	
 }
