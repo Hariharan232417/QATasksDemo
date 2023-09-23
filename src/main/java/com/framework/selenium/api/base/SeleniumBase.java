@@ -688,10 +688,10 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element {
 			getDriver().get(url);
 		} catch (WebDriverException e) {
 			e.printStackTrace();
-			reportStep("The Browser Could not be Launched. Hence Failed \n" + e.getMessage(), "fail");
+			//reportStep("The Browser Could not be Launched. Hence Failed \n" + e.getMessage(), "fail");
 		} catch (Exception e) {
 			e.printStackTrace();
-			reportStep("The Browser Could not be Launched. Hence Failed \n" + e.getMessage(), "fail");
+			//reportStep("The Browser Could not be Launched. Hence Failed \n" + e.getMessage(), "fail");
 		}
 	}
 
