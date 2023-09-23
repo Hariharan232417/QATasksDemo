@@ -38,8 +38,11 @@ public abstract class ExtentReporter extends DriverInstance {
 	public synchronized void startReport() {
 		String date = new SimpleDateFormat(pattern).format(new Date());
 		folderName = "reports/" + date;
+		
+		System.out.println("Reports Folder to be created "+ folderName);
 
 		File folder = new File("./" + folderName);
+		
 		if (!folder.exists()) {
 			folder.mkdir();
 		}
