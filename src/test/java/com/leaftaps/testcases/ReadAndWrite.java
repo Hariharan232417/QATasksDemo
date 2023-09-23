@@ -22,9 +22,9 @@ public class ReadAndWrite extends ProjectHooks{
 	public void runTests() {
 		
 		 new MainPage_Netmeds() 
-		 .enterMoleculeName_PressEnter("LINEZOLID 600MG/300ML")
+		 .enterMoleculeName_PressEnter("TEICOPLANIN 400MG")
 		 .scrollTillLastMoleculeResults()
-		 .getAll_Alternatives_Of_Molecule_StoreInMap("LINEZOLID 600MG/300ML")
+		 .getAll_Alternatives_Of_Molecule_StoreInMap("TEICOPLANIN 400MG")
 		 .get_AlternativesDetails_StoreInMap();
 		 
 		

@@ -1,4 +1,4 @@
-# Function to check if command exist
+    # Function to check if command exist
 is_command_exist()
 {
         local arg="$1"
