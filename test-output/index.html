@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Molecules" class="navigator-link">
-              <span class="suite-name border-failed">Molecules</span>
+              <span class="suite-name border-passed">Molecules</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,21 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method, 1 failed,   </span>
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Molecules" class="hide-methods failed suite-Molecules"> (hide)</a> <!-- hide-methods failed suite-Molecules -->
-                      <a href="#" panel-name="suite-Molecules" class="show-methods failed suite-Molecules"> (show)</a> <!-- show-methods failed suite-Molecules -->
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Molecules" class="hide-methods passed suite-Molecules"> (hide)</a> <!-- hide-methods passed suite-Molecules -->
+                      <a href="#" panel-name="suite-Molecules" class="show-methods passed suite-Molecules"> (show)</a> <!-- show-methods passed suite-Molecules -->
                     </span>
-                    <div class="method-list-content failed suite-Molecules">
+                    <div class="method-list-content passed suite-Molecules">
                       <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Molecules" title="com.leaftaps.testcases.OneMg_DOXYCYCLINE_100MG" class="method navigator-link" hash-for-method="runTests">runTests</a> <!-- method navigator-link -->
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Molecules" title="com.leaftaps.testcases.OneMg_MEROPENEM_1GM" class="method navigator-link" hash-for-method="runTests">runTests</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content failed suite-Molecules -->
+                    </div> <!-- method-list-content passed suite-Molecules -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -117,10 +117,10 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Molecules" class="panel Molecules">
-          <div class="suite-Molecules-class-failed">
+          <div class="suite-Molecules-class-passed">
             <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">com.leaftaps.testcases.OneMg_DOXYCYCLINE_100MG</span>
+              <img src="passed.png"/>
+              <span class="class-name">com.leaftaps.testcases.OneMg_MEROPENEM_1GM</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -128,18 +128,10 @@
                   <a name="runTests">
                   </a> <!-- runTests -->
                   <span class="method-name">runTests</span>
-                  <div class="stack-trace">java.lang.RuntimeException: See the reporter for details.
-	at com.framework.utils.ExtentReporter.reportStep(ExtentReporter.java:94)
-	at com.framework.utils.ExtentReporter.reportStep(ExtentReporter.java:115)
-	at com.framework.selenium.api.base.SeleniumBase.OneMG_GetEachAlternativesText_StoreInMap(SeleniumBase.java:1522)
-	at com.leaftaps.pages.OneMG_MainPage.get_AlternativesDetails_StoreInMap(OneMG_MainPage.java:72)
-	at com.leaftaps.testcases.OneMg_DOXYCYCLINE_100MG.runTests(OneMg_DOXYCYCLINE_100MG.java:29)
-... Removed 25 stack frames
-</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Molecules-class-failed -->
+          </div> <!-- suite-Molecules-class-passed -->
         </div> <!-- panel Molecules -->
         <div panel-name="test-xml-Molecules" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -153,7 +145,7 @@
   &lt;test name=&quot;Fetch Text From Websites&quot;&gt;
     &lt;parameter name=&quot;url&quot; value=&quot;https://www.1mg.com/&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.leaftaps.testcases.OneMg_DOXYCYCLINE_100MG&quot;/&gt;
+      &lt;class name=&quot;com.leaftaps.testcases.OneMg_MEROPENEM_1GM&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Fetch Text From Websites --&gt;
 &lt;/suite&gt; &lt;!-- Molecules --&gt;
@@ -196,13 +188,13 @@ data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runTests')
-data.setCell(0, 2, 'com.leaftaps.testcases.OneMg_DOXYCYCLINE_100MG')
-data.setCell(0, 3, 639040);
+data.setCell(0, 2, 'com.leaftaps.testcases.OneMg_MEROPENEM_1GM')
+data.setCell(0, 3, 549047);
 window.suiteTableData['Molecules']= { tableData: data, tableDiv: 'times-div-Molecules'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 10 minutes</span>
+              <span class="suite-total-time">Total running time: 9 minutes</span>
               <div id="times-div-Molecules">
               </div> <!-- times-div-Molecules -->
             </div> <!-- times-div -->
@@ -228,48 +220,46 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.leaftaps.testcases.OneMg_DOXYCYCLINE_100MG</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.leaftaps.testcases.OneMg_MEROPENEM_1GM</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">startReport</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-test before">
                 <span class="method-name">setValues</span>
-                <span class="method-start">146 ms</span>
+                <span class="method-start">376 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-class before">
                 <span class="method-name">setUpClass</span>
-                <span class="method-start">149 ms</span>
+                <span class="method-start">384 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
                 <span class="method-name">startTestCase</span>
-                <span class="method-start">241 ms</span>
+                <span class="method-start">651 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
                 <span class="method-name">preCondition(https://www.1mg.com/)</span>
-                <span class="method-start">275 ms</span>
+                <span class="method-start">747 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">runTests</span>
-                <span class="method-start">7869 ms</span>
+                <span class="method-start">13233 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">postCondition</span>
-                <span class="method-start">646911 ms</span>
+                <span class="method-start">562281 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">updateResult</span>
-                <span class="method-start">651968 ms</span>
+                <span class="method-start">567548 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">652257 ms</span>
+                <span class="method-start">568103 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-suite after">
                 <span class="method-name">endResult</span>
-                <span class="method-start">652293 ms</span>
+                <span class="method-start">568188 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

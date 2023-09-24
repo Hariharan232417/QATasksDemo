@@ -378,7 +378,7 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element {
 			text = "No element Found for "+ElementName;
 		}
 		
-		return ElementName +"---> "+text;
+		return text;
 		
 	}
 	
@@ -409,7 +409,7 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element {
 			e.printStackTrace();
 		}
 		
-		return "Synopsis ---> "+text;
+		return text;
 		
 	}
 	
@@ -1432,8 +1432,8 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element {
 					
 					String eachAlternatives = values.get(i);
 				
-					getDriver().findElement(By.xpath("//input[@id='srchBarShwInfo']")).sendKeys(eachAlternatives, Keys.ENTER);
-					
+					//----------------------------------Old code: ----------------------------------------------------------
+					/*getDriver().findElement(By.xpath("//input[@id='srchBarShwInfo']")).sendKeys(eachAlternatives, Keys.ENTER);
 					String xpath_ProductTitle = "//div[contains(@class,'row style__grid-container')]//a//span[contains(@class,'style__pro-title')]";
 					
 					wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(By.xpath(xpath_ProductTitle))));
@@ -1455,10 +1455,31 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element {
 					
 					List<String> lstWindowHandles = new ArrayList(windowHandles);
 					
-					getDriver().switchTo().window(lstWindowHandles.get(1));
+					getDriver().switchTo().window(lstWindowHandles.get(1));*/
+					
+					//---------------------------------End of Old code:----------------------------------------------------
+					
+					//New code:
+					getDriver().findElement(By.xpath("//input[@id='srchBarShwInfo']")).clear();
+					getDriver().findElement(By.xpath("//input[@id='srchBarShwInfo']")).sendKeys("");
+					getDriver().findElement(By.xpath("//input[@id='srchBarShwInfo']")).sendKeys(eachAlternatives);
+					String xpath_autoSearchResults = "//ul//a//b[normalize-space()='"+eachAlternatives+"']";
+					
+					//section[@id="srchAtoCmpltRslt"]
+					Thread.sleep(1000);
+					wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(By.xpath(xpath_autoSearchResults))));
+					
+					String xpath_PriceTag = "//a[@data-auto-search-results='true']//span[contains(@class,'styles__org-price')]";
+					String MRPFetchedText = getElementText(xpath_PriceTag,"MRP");
+					lst.add(MRPFetchedText);
+					
+					getDriver().findElement(By.xpath(xpath_autoSearchResults)).click();
+					
+					//-------------End of New code:---------------------------------
+					
 					
 					String xpath_DrugHeader = "//div[@id='drug_header']";
-					Thread.sleep(500);
+					Thread.sleep(1000);
 					wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(By.xpath(xpath_DrugHeader))));
 					
 					//Prescription required:
@@ -1489,6 +1510,8 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element {
 					
 					//Uses:
 					String xpath_UsesAndBenefits = "//div[@id='scroll-bar']//ul/a/span[text()='Uses and benefits']";
+					Thread.sleep(500);
+					wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(By.xpath(xpath_UsesAndBenefits))));
 					getDriver().findElement(By.xpath(xpath_UsesAndBenefits)).click();
 					String xpathUses = "//div[@id='uses_and_benefits']//h2[contains(text(),'Uses of')]/..";
 					wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(By.xpath(xpathUses))));
@@ -1498,6 +1521,9 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element {
 					
 					//Fact box:
 					String xpath_FactBox = "//div[@id='scroll-bar']//ul/a/span[text()='Fact box']";
+					Thread.sleep(500);
+					wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(By.xpath(xpath_FactBox))));
+					wait.until(ExpectedConditions.elementToBeClickable(getDriver().findElement(By.xpath(xpath_FactBox))));
 					getDriver().findElement(By.xpath(xpath_FactBox)).click();
 					Thread.sleep(400);
 					String xpath_Left = "//div[@id='fact_box']//div[contains(@class,'DrugFactBox__col-left')]";
@@ -1506,11 +1532,11 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element {
 					String FactBox_FetchedText = getFactbox_StoreInList(xpath_Left,xpath_Right);
 					lst.add(FactBox_FetchedText);
 					
-					getDriver().close();
+					//getDriver().close();
 					
 					Thread.sleep(1000);
 										
-					getDriver().switchTo().window(originalWindowHandle);
+					//getDriver().switchTo().window(originalWindowHandle);
 				
 				}
 				catch(NoSuchElementException e)
@@ -1521,19 +1547,7 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element {
 					
 					reportStep(e.getMessage()+" Element not found when fetching element - "+values.get(i),"fail");
 					
-					if(!getDriver().getWindowHandle().equals(originalWindowHandle))
-					{
-						getDriver().close();
-						
-						try {
-							Thread.sleep(1000);
-						} catch (InterruptedException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-											
-						getDriver().switchTo().window(originalWindowHandle);
-					}
+					
 					
 				}
 				catch(ElementClickInterceptedException e)
@@ -1544,21 +1558,6 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element {
 					
 					reportStep(e.getMessage()+" ElementClickInterceptedException when fetching element - "+values.get(i),"fail");
 					
-					if(!getDriver().getWindowHandle().equals(originalWindowHandle))
-					{
-						getDriver().close();
-						
-						try {
-							Thread.sleep(1000);
-						} catch (InterruptedException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}					
-						getDriver().switchTo().window(originalWindowHandle);
-					}
-					
-					
-					
 				}
 				catch(WebDriverException e)
 				{
@@ -1568,17 +1567,6 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element {
 					
 					reportStep(e.getMessage()+" WebDriverException when fetching element - "+values.get(i),"fail");
 					
-					if(!getDriver().getWindowHandle().equals(originalWindowHandle))
-					{
-						getDriver().close();
-						try {
-							Thread.sleep(1000);
-						} catch (InterruptedException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}					
-						getDriver().switchTo().window(originalWindowHandle);
-					}
 					
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
