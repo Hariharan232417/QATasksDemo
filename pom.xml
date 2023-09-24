@@ -93,7 +93,7 @@
                 <version>3.1.2</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>testng_CLINDAMYCIN600MG.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
