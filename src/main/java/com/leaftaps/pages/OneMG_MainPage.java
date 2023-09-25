@@ -27,7 +27,7 @@ public class OneMG_MainPage extends ProjectHooks{
 	
 	String searchForMedicinesInputbox = "//input[@id='srchBarShwInfo']";
 
-	String xpath_AllCards = "//div[@class='row style__grid-container___3OfcL']//a//span[contains(@class,'style__pro-title')]";
+	String xpath_AllCards = "//div[contains(@class,'row style__grid-container')]//a//span[contains(@class,'style__pro-title')]";
 	
 	
 	Map<String,List<String>> map_Molecule_AlternateText = new LinkedHashMap();
@@ -84,8 +84,15 @@ public class OneMG_MainPage extends ProjectHooks{
 
 	
 	public void writeAllResults_Excel(String molecule, Map<String, Map<String, List<String>>> map) {
+		
+		String moleculeFileName_RemoveSlash=molecule;
+		if(molecule.contains("/"))
+		{
+			 moleculeFileName_RemoveSlash = molecule.replace("/", "_");
+		}
+		
 
-		String fileName = "./Data/AllResults_"+molecule+".xlsx";
+		String fileName = "./Data/AllResults_"+moleculeFileName_RemoveSlash+".xlsx";
 		FileInputStream in = null;
 		FileOutputStream outputStream = null;
 		XSSFWorkbook workbook = null;

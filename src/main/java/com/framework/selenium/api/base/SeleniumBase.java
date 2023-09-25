@@ -1386,16 +1386,24 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element {
 				}
 				
 				String xpath_NextButton = "//div[contains(@class,'style__paginate-container')]//span[contains(@class,'style__next')]";
-				boolean nextButtonDisabledAttributeFlag = getDriver().findElement(By.xpath(xpath_NextButton)).getAttribute("class").contains("disabled");
-				if(nextButtonDisabledAttributeFlag==false)
-					getDriver().findElement(By.xpath(xpath_NextButton)).click();
+				if(getDriver().findElements(By.xpath(xpath_NextButton)).size()>0)
+				{
+					boolean nextButtonDisabledAttributeFlag = getDriver().findElement(By.xpath(xpath_NextButton)).getAttribute("class").contains("disabled");
+					if(nextButtonDisabledAttributeFlag==false)
+						getDriver().findElement(By.xpath(xpath_NextButton)).click();
+					else
+						break;
+				}
 				else
+				{
 					break;
+				}
+				
 				
 			}
 		}
 		catch (NoSuchElementException e) {
-			reportStep("The Element with locator: " + xpath + " Not Found" , "fail");
+			reportStep(e.getMessage()+". The Element with locator: " + xpath + " Not Found" , "fail");
 		} catch (Exception e) {
 			reportStep("The Element with locator: " + xpath + " Not Found as there is Generic Exception" , "fail");
 				
@@ -1461,13 +1469,17 @@ public class SeleniumBase extends ExtentReporter implements Browser, Element {
 					
 					//New code:
 					getDriver().findElement(By.xpath("//input[@id='srchBarShwInfo']")).clear();
-					getDriver().findElement(By.xpath("//input[@id='srchBarShwInfo']")).sendKeys("");
+					
 					getDriver().findElement(By.xpath("//input[@id='srchBarShwInfo']")).sendKeys(eachAlternatives);
+					Thread.sleep(1000);
 					String xpath_autoSearchResults = "//ul//a//b[normalize-space()='"+eachAlternatives+"']";
 					
-					//section[@id="srchAtoCmpltRslt"]
-					Thread.sleep(1000);
-					wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(By.xpath(xpath_autoSearchResults))));
+					if(getDriver().findElements(By.xpath(xpath_autoSearchResults)).size()==0)
+					{
+						getDriver().findElement(By.xpath("//input[@id='srchBarShwInfo']")).sendKeys(Keys.ENTER);
+					}
+					
+					//wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(By.xpath(xpath_autoSearchResults))));
 					
 					String xpath_PriceTag = "//a[@data-auto-search-results='true']//span[contains(@class,'styles__org-price')]";
 					String MRPFetchedText = getElementText(xpath_PriceTag,"MRP");

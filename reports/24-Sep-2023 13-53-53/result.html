@@ -1,0 +1,970 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>Leaftaps</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+				<li class='waves-effect'><a href='#!' view='author-view' onclick="configureView(3)"><i class='material-icons'>person</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>Leaftaps</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Sep 24, 2023 01:53:53 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>ExtractDatas</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>OneMg_CEFOPERAZONE 1GM + SULBACTUM 500MG</span>
+						<span class='test-time'>Sep 24, 2023 01:53:53 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Sep 24, 2023 01:53:53 PM</span>
+	<span class='label end-time'>Sep 24, 2023 08:11:23 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>6h 17m 29s+560ms</span>
+</div>
+	<div class='test-desc'>Extract Data from One MG App and store it in Excel for Molecule - OneMg_CEFOPERAZONE 1GM + SULBACTUM 500MG </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>ExtractDatas</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>Hari</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='2'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>OneMg_CEFOPERAZONE 1GM + SULBACTUM 500MG</h5>
+						<span class="node-time label grey lighten-1 white-text">Sep 24, 2023 08:11:23 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>6h 17m 15s+718ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>1:54:10 PM</td>
+													<td class='step-details'>Banner closed successfully<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/882749767.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/882749767.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/882749767.jpg'></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>1:54:18 PM</td>
+													<td class='step-details'>CEFOPERAZONE 1GM + SULBACTUM 500MG entered successfully<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/519283667.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/519283667.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/519283667.jpg'></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:01:07 PM</td>
+													<td class='step-details'>Successfully scrolled till last Page. Total Alternatives - 10000<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/101286861.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/101286861.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/101286861.jpg'></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:01:12 PM</td>
+													<td class='step-details'>Successfully stored all Alternatives for Molecule CEFOPERAZONE 1GM + SULBACTUM 500MGin a Map<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/878291129.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/878291129.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/878291129.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>2:38:13 PM</td>
+													<td class='step-details'>element click intercepted: Element <span>...</span> is not clickable at point (106, 226). Other element would receive the click: <span class="ChildItem__link-text___2GfLq">...</span>
+  (Session info: chrome=116.0.5845.188)
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, clickElement {id=97C03457C50D80B0E63341BA817C6AA7_element_21653}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (a13060690458b49344a5cce7be0379d0)] -> xpath: //div[@id='scroll-bar']//ul/a/span[text()='Uses and benefits']]
+Session ID: a13060690458b49344a5cce7be0379d0 ElementClickInterceptedException when fetching element - Nexocef 1gm Injection<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/675981932.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/675981932.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/675981932.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>2:38:45 PM</td>
+													<td class='step-details'>element click intercepted: Element <span>...</span> is not clickable at point (106, 226). Other element would receive the click: <span class="ChildItem__link-text___2GfLq">...</span>
+  (Session info: chrome=116.0.5845.188)
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, clickElement {id=A113D75E8FABA77BAE72B0C20022FBD3_element_21945}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (a13060690458b49344a5cce7be0379d0)] -> xpath: //div[@id='scroll-bar']//ul/a/span[text()='Uses and benefits']]
+Session ID: a13060690458b49344a5cce7be0379d0 ElementClickInterceptedException when fetching element - Suranorm 1gm Suspension<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/884379445.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/884379445.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/884379445.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>2:39:41 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//div[@id='drug_header']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//div[@id='drug_header']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Kiviza 1gm Injection<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/24130392.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/24130392.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/24130392.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>2:42:58 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//div[@id='drug_header']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//div[@id='drug_header']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Colxone 1gm Injection<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/583527316.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/583527316.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/583527316.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>2:49:51 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//div[@id='drug_header']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//div[@id='drug_header']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Ceftose 1gm Injection<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/708555835.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/708555835.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/708555835.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:02:06 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='Ceftriapain 1GM Injection']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='Ceftriapain 1GM Injection']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Ceftriapain 1GM Injection<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/670884810.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/670884810.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/670884810.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:02:24 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='Cef-T 1gm Injection']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='Cef-T 1gm Injection']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Cef-T 1gm Injection<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/314103876.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/314103876.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/314103876.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:02:42 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='Vidagem-M 1GM Tablet']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='Vidagem-M 1GM Tablet']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Vidagem-M 1GM Tablet<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/177033051.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/177033051.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/177033051.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:03:00 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='Moxclav 1gm Tablet']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='Moxclav 1gm Tablet']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Moxclav 1gm Tablet<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/108661235.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/108661235.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/108661235.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:16:57 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//div[@id='drug_header']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//div[@id='drug_header']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Zindee Sachet 1gm<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/148640324.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/148640324.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/148640324.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:17:17 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//div[@id='drug_header']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//div[@id='drug_header']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Essentiale-L 1gm Capsule<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/579706929.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/579706929.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/579706929.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:23:10 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//div[@id='drug_header']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//div[@id='drug_header']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Ceanothus PN 1gm Tablet<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/206328109.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/206328109.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/206328109.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:26:21 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='Dayo OD 1gm Tablet PR']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='Dayo OD 1gm Tablet PR']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Dayo OD 1gm Tablet PR<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/94821376.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/94821376.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/94821376.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:26:38 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='Virgo Healthcare Biovir Sachet 1gm']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='Virgo Healthcare Biovir Sachet 1gm']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Virgo Healthcare Biovir Sachet 1gm<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/484741398.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/484741398.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/484741398.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:26:57 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='Upakarma Ayurveda Combo Pack of Kesar 500mg & Afghani Kesar 1gm']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='Upakarma Ayurveda Combo Pack of Kesar 500mg & Afghani Kesar 1gm']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Upakarma Ayurveda Combo Pack of Kesar 500mg & Afghani Kesar 1gm<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/445764268.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/445764268.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/445764268.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:27:14 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='Levesam 1gm Eazy Glide Tablet']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='Levesam 1gm Eazy Glide Tablet']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Levesam 1gm Eazy Glide Tablet<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/68039189.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/68039189.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/68039189.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:27:32 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='Essentiale-L 1gm Capsule Gluten Free']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='Essentiale-L 1gm Capsule Gluten Free']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Essentiale-L 1gm Capsule Gluten Free<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/146874743.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/146874743.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/146874743.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:27:50 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='Cifran OD 1gm Tablet ER']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='Cifran OD 1gm Tablet ER']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Cifran OD 1gm Tablet ER<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/628381941.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/628381941.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/628381941.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:28:09 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='Bowmuv Sachet 1gm Each Pineapple']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='Bowmuv Sachet 1gm Each Pineapple']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Bowmuv Sachet 1gm Each Pineapple<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/329900531.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/329900531.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/329900531.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:28:28 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='Sporlac AB 1gm Banana Sachet']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='Sporlac AB 1gm Banana Sachet']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Sporlac AB 1gm Banana Sachet<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/632152748.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/632152748.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/632152748.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:28:46 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='Vitomin-D3 1gm Granules For Bone Health']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='Vitomin-D3 1gm Granules For Bone Health']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Vitomin-D3 1gm Granules For Bone Health<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/608244084.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/608244084.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/608244084.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:29:05 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='OB-Cal 3 Sachet 1gm Orange Sachet']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='OB-Cal 3 Sachet 1gm Orange Sachet']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - OB-Cal 3 Sachet 1gm Orange Sachet<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/276830201.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/276830201.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/276830201.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:29:23 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='Pirazone 500mg Injection']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='Pirazone 500mg Injection']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Pirazone 500mg Injection<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/337401328.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/337401328.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/337401328.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:29:41 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='NiQu HMoF Human Milk Fortifier 1gm Sachet (20 Each)']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='NiQu HMoF Human Milk Fortifier 1gm Sachet (20 Each)']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - NiQu HMoF Human Milk Fortifier 1gm Sachet (20 Each)<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/865419367.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/865419367.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/865419367.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:29:59 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='Cefoperon 500mg Injection']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='Cefoperon 500mg Injection']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Cefoperon 500mg Injection<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/627503964.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/627503964.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/627503964.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:30:17 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='Cepara 500mg Injection']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='Cepara 500mg Injection']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Cepara 500mg Injection<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/271490760.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/271490760.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/271490760.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:30:35 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='NiQu HMoF Human Milk Fortifier 1gm Sachet (20 Each)']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='NiQu HMoF Human Milk Fortifier 1gm Sachet (20 Each)']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - NiQu HMoF Human Milk Fortifier 1gm Sachet (20 Each)<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/234863906.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/234863906.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/234863906.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>3:30:53 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='Calcitas-D3 Granules 1gm For Bone, Joint and Muscle Care']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='Calcitas-D3 Granules 1gm For Bone, Joint and Muscle Care']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Calcitas-D3 Granules 1gm For Bone, Joint and Muscle Care<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/229083880.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/229083880.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/229083880.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>6:10:00 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//div[@id='drug_header']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//div[@id='drug_header']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Lefosym 500mg Tablet<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/77823759.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/77823759.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/77823759.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>6:35:34 PM</td>
+													<td class='step-details'>element click intercepted: Element <span>...</span> is not clickable at point (106, 226). Other element would receive the click: <span class="ChildItem__link-text___2GfLq">...</span>
+  (Session info: chrome=116.0.5845.188)
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, clickElement {id=C5E5A7FD1E413C8EFE38B0A8B1E82D70_element_30258}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (a13060690458b49344a5cce7be0379d0)] -> xpath: //div[@id='scroll-bar']//ul/a/span[text()='Uses and benefits']]
+Session ID: a13060690458b49344a5cce7be0379d0 ElementClickInterceptedException when fetching element - Vamocln 500mg Injection<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/232478125.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/232478125.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/232478125.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>6:41:04 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//div[@id='drug_header']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//div[@id='drug_header']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Azetor 500mg Tablet<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/257669762.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/257669762.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/257669762.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>6:41:22 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//ul//a//b[normalize-space()='Cellmune 500mg Tablet']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//ul//a//b[normalize-space()='Cellmune 500mg Tablet']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Cellmune 500mg Tablet<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/212150168.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/212150168.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/212150168.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>7:07:57 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//div[@id='drug_header']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//div[@id='drug_header']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Mormic 500mg Tablet<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/776555151.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/776555151.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/776555151.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>8:04:18 PM</td>
+													<td class='step-details'>no such element: Unable to locate element: {"method":"xpath","selector":"//div[@id='drug_header']"}
+  (Session info: chrome=116.0.5845.188)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, findElement {using=xpath, value=//div[@id='drug_header']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0 Element not found when fetching element - Shanlevo 500mg Tablet<img data-featherlight='./../../reports/24-Sep-2023 13-53-53/images/377725655.jpg' width='10%' src='./../../reports/24-Sep-2023 13-53-53/images/377725655.jpg' data-src='./../../reports/24-Sep-2023 13-53-53/images/377725655.jpg'></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>8:11:23 PM</td>
+													<td class='step-details'>Browser cannot be closed disconnected: not connected to DevTools
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=116.0.5845.188)
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a13060690458b49344a5cce7be0379d0, close {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.188, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\Windows\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65152}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65152/devtoo..., se:cdpVersion: 116.0.5845.188, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a13060690458b49344a5cce7be0379d0</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='10.256%'><span class='strong'>4</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='89.744%'>35</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>ExtractDatas</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2023 01:53:53 PM</td>
+										<td class='linked' test-id='1'>OneMg_CEFOPERAZONE 1GM + SULBACTUM 500MG</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<div id='author-view' class='view hide'>
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Authors' title='Search Authors'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Authors...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Authors</h5>
+                <ul id='author-collection' class='author-collection'>
+
+                        <li class='author displayed active'>
+                            <div class='author-heading'>
+                                <span class='author-name'>Hari</span>
+                                <span class='author-status right'>
+                                        <span class='label fail'>1</span>
+						        </span>
+                            </div>
+                            <div class='author-content hide'>
+                                <div class='author-status-counts'>
+                                    
+                                    <span class='label red lighten-1 white-text'>Failed: 1</span>
+                                    
+                                </div>
+
+                                <div class='author-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Sep 24, 2023 01:53:53 PM</td>
+                                                <td class='linked' test-id='1'>OneMg_CEFOPERAZONE 1GM + SULBACTUM 500MG</td>
+                                                <td><span class='test-status fail'>fail</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='author-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>1</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>39</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Sep 24, 2023 01:53:53 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Sep 24, 2023 08:11:30 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>6h 17m 36s+930ms</div>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>ExtractDatas</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 0,
+				failParent: 1,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 1,
+				
+				passChild: 4,
+				failChild: 35,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 35,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		<script type='text/javascript'>
+			$(document).ready(function() {
+				$('#test-view-charts').addClass('hide');
+			});
+		</script>
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>

@@ -30,7 +30,7 @@ public class DriverInstance  extends AbstractTestNGCucumberTests{
 		case "chrome":
 					
 			ChromeOptions chrome_options = new ChromeOptions();
-
+			
 			chrome_options.addArguments("--remote-allow-origins=*");
 			chrome_options.addArguments("--no-sandbox");
 			chrome_options.addArguments("--disable-dev-shm-usage");

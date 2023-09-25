@@ -4,20 +4,20 @@
   <test name="Fetch Text From Websites(failed)">
     <parameter name="url" value="https://www.1mg.com/"/>
     <classes>
-      <class name="com.leaftaps.testcases.OneMg_DOXYCYCLINE_100MG">
+      <class name="com.leaftaps.testcases.OneMg_CEFOPERAZONE1GM_SULBACTUM_500MG">
         <methods>
           <include name="postCondition"/>
-          <include name="startTestCase"/>
-          <include name="setUpClass"/>
           <include name="runTests"/>
           <include name="setValues"/>
+          <include name="startTestCase"/>
+          <include name="setUpClass"/>
           <include name="updateResult"/>
           <include name="preCondition"/>
           <include name="tearDownClass"/>
           <include name="endResult"/>
           <include name="startReport"/>
         </methods>
-      </class> <!-- com.leaftaps.testcases.OneMg_DOXYCYCLINE_100MG -->
+      </class> <!-- com.leaftaps.testcases.OneMg_CEFOPERAZONE1GM_SULBACTUM_500MG -->
     </classes>
   </test> <!-- Fetch Text From Websites(failed) -->
 </suite> <!-- Failed suite [Molecules] -->
